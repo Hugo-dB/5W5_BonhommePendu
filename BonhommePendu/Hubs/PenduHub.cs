@@ -26,6 +26,7 @@ namespace BonhommePendu.Hubs
             GameData? gameData = await _penduService.StartGame();
             if (gameData != null)
                 await Clients.All.SendAsync("GameData", gameData);
+            string cheat = gameData.Word;
         }
 
         public async Task GuessLetter(char letter)
